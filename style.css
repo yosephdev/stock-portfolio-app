@@ -1,3 +1,7 @@
+body {
+  background-color: gray; 
+}
+
 input {
   width: 70px;
 }
