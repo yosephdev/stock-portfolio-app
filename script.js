@@ -7,27 +7,27 @@ class Portfolio extends React.Component {
           name: "Feetbook",
           shares_owned: 20,
           cost_per_share: 50,
-          market_price: 130
+          market_price: 130,
         },
         {
           name: "Yamazon",
           shares_owned: 5,
           cost_per_share: 200,
-          market_price: 500
+          market_price: 500,
         },
         {
           name: "Snoozechat",
           shares_owned: 100,
           cost_per_share: 20,
-          market_price: 3
-        }
+          market_price: 3,
+        },
       ],
       form: {
         name: "",
         shares_owned: 0,
         cost_per_share: 0,
-        market_price: 0
-      }
+        market_price: 0,
+      },
     };
 
     this.removeStock = this.removeStock.bind(this);
@@ -41,7 +41,7 @@ class Portfolio extends React.Component {
     portfolio.splice(index, 1); // remove value at index
 
     this.setState({
-      portfolio
+      portfolio,
     });
   }
 
@@ -51,7 +51,7 @@ class Portfolio extends React.Component {
 
     portfolio[index][name] = value;
     this.setState({
-      portfolio
+      portfolio,
     });
   }
 
@@ -61,7 +61,7 @@ class Portfolio extends React.Component {
 
     form[name] = value;
     this.setState({
-      form
+      form,
     });
   }
 
@@ -76,14 +76,14 @@ class Portfolio extends React.Component {
         name: "",
         shares_owned: 0,
         cost_per_share: 0,
-        market_price: 0
-      }
+        market_price: 0,
+      },
     });
     // reset form to empty
   }
 
   render() {
-    const { portfolio, form, } = this.state;
+    const { portfolio, form } = this.state;
 
     const portfolio_market_value = portfolio.reduce(
       (sum, stock) => stock.shares_owned * stock.market_price + sum,
@@ -96,7 +96,10 @@ class Portfolio extends React.Component {
     const portfolio_gain_loss = portfolio_market_value - portfolio_cost;
 
     return (
-      <div className="container">
+      <div
+        className="container"
+        style={{ backgroundImage: 'url("background.jpg")' }}
+      >
         <h1 className="text-center my-4">Stock Portfolio</h1>
         <div className="row">
           <div className="col-12">
@@ -113,14 +116,9 @@ class Portfolio extends React.Component {
                 </tr>
               </thead>
               <tbody>
-                
                 {portfolio.map((stock, index) => {
-                  const {
-                    name,
-                    shares_owned,
-                    cost_per_share,
-                    market_price
-                  } = stock;
+                  const { name, shares_owned, cost_per_share, market_price } =
+                    stock;
 
                   const market_value = shares_owned * market_price;
                   const unrealized_gain_loss =
@@ -131,7 +129,7 @@ class Portfolio extends React.Component {
                       <td>{name}</td>
                       <td>
                         <input
-                          onChange={e => this.handleChange(e, index)}
+                          onChange={(e) => this.handleChange(e, index)}
                           type="number"
                           name="shares_owned"
                           value={shares_owned}
@@ -139,7 +137,7 @@ class Portfolio extends React.Component {
                       </td>
                       <td>
                         <input
-                          onChange={e => this.handleChange(e, index)}
+                          onChange={(e) => this.handleChange(e, index)}
                           type="number"
                           name="cost_per_share"
                           value={cost_per_share}
@@ -147,22 +145,24 @@ class Portfolio extends React.Component {
                       </td>
                       <td>
                         <input
-                          onChange={e => this.handleChange(e, index)}
+                          onChange={(e) => this.handleChange(e, index)}
                           type="number"
                           name="market_price"
                           value={market_price}
                         />
                       </td>
-                      <td>{market_value}</td> 
+                      <td>{market_value}</td>
                       <td>{unrealized_gain_loss}</td>
-                      <td>                        
-                        <button className="btn btn-light btn-sm"
-                          onCLick={()=> this.removeStock(index)}>
+                      <td>
+                        <button
+                          className="btn btn-light btn-sm"
+                          onClick={() => this.removeStock(index)}
+                        >
                           remove
                         </button>
                       </td>
                     </tr>
-                  )
+                  );
                 })}
               </tbody>
             </table>
@@ -204,16 +204,37 @@ class Portfolio extends React.Component {
             <button className="btn btn-primary btn-sm">add</button>
           </form>
           <div className="col-12 col-md-6">
-            <h4 className="mb-3">             
+            <h4 className="mb-3">
               Portfolio value: $ {portfolio_market_value}
             </h4>
           </div>
           <div className="col-12 col-md-6">
-            <h4 className="mb-3">              
+            <h4 className="mb-3">
               Portfolio gain / loss: $ {portfolio_gain_loss}
             </h4>
           </div>
         </div>
+
+        <footer className="text-center mt-4">
+          <p>
+            Check out my{" "}
+            <a
+              href="https://github.com/yosephdev"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub
+            </a>{" "}
+            and{" "}
+            <a
+              href="https://yoseph.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Portfolio Website
+            </a>
+          </p>
+        </footer>
       </div>
     );
   }
