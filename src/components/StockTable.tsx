@@ -18,9 +18,9 @@ export const StockTable: React.FC<StockTableProps> = ({ stocks, onUpdate, onRemo
             <th>Shares</th>
             <th>Avg Cost</th>
             <th>Current Price</th>
-            <th>Market Value</th>
-            <th>Gain/Loss</th>
-            <th>Daily %</th>
+            <th className="hidden md:table-cell">Market Value</th>
+            <th className="hidden md:table-cell">Gain/Loss</th>
+            <th className="hidden md:table-cell">Daily %</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -65,13 +65,13 @@ export const StockTable: React.FC<StockTableProps> = ({ stocks, onUpdate, onRemo
                   />
                 </td>
                 <td data-label="Current Price">${stock.market_price.toFixed(2)}</td>
-                <td data-label="Market Value">${marketValue.toFixed(2)}</td>
-                <td data-label="Gain/Loss">
+                <td data-label="Market Value" className="hidden md:table-cell">${marketValue.toFixed(2)}</td>
+                <td data-label="Gain/Loss" className="hidden md:table-cell">
                   <div className={gainLoss >= 0 ? 'text-success' : 'text-danger'}>
                     ${gainLoss.toFixed(2)} ({gainLossPercent.toFixed(2)}%)
                   </div>
                 </td>
-                <td data-label="Daily %">
+                <td data-label="Daily %" className="hidden md:table-cell">
                   <div className={`stock-change ${dailyChange >= 0 ? 'positive' : 'negative'}`}>
                     {dailyChange >= 0 ? '+' : ''}{dailyChange.toFixed(2)}%
                   </div>

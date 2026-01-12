@@ -73,9 +73,9 @@ export const AllocationChart: React.FC<AllocationChartProps> = ({ portfolio }) =
   }
 
   return (
-    <div className="w-full" style={{ padding: 'var(--space-2) 0' }}>
-      <ResponsiveContainer width="100%" height={320}>
-        <PieChart margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
+    <div className="allocation-chart">
+      <ResponsiveContainer width="100%" height={280}>
+        <PieChart margin={{ top: 20, right: 10, bottom: 20, left: 10 }}>
           <Pie
             data={dataWithPercentages}
             cx="50%"
@@ -97,9 +97,14 @@ export const AllocationChart: React.FC<AllocationChartProps> = ({ portfolio }) =
           <Tooltip content={<CustomTooltip />} />
           <Legend 
             verticalAlign="bottom" 
-            height={36}
+            height={48}
             iconType="circle"
-            wrapperStyle={{ paddingTop: 'var(--space-4)' }}
+            wrapperStyle={{ 
+              paddingTop: 'var(--space-4)', 
+              paddingBottom: 'var(--space-2)',
+              lineHeight: 1.4,
+              whiteSpace: 'normal'
+            }}
           />
         </PieChart>
       </ResponsiveContainer>
@@ -126,7 +131,7 @@ export const AllocationChart: React.FC<AllocationChartProps> = ({ portfolio }) =
                   <td data-label="Allocation">
                     <div className="flex items-center">
                       <div style={{ 
-                        width: '120px', 
+                        width: '100px', 
                         height: '8px', 
                         backgroundColor: 'var(--color-gray-200)',
                         borderRadius: 'var(--radius-full)',
