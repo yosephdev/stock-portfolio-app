@@ -931,6 +931,11 @@ h4 {
     font-size: 16px; /* Prevents zoom on iOS */
   }
   
+  /* Chart spacing improvements */
+  .w-full {
+    padding: var(--space-3) 0;
+  }
+  
   .grid {
     gap: var(--space-4);
   }

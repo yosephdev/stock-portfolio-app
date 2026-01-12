@@ -73,20 +73,20 @@ export const AllocationChart: React.FC<AllocationChartProps> = ({ portfolio }) =
   }
 
   return (
-    <div className="w-full">
-      <ResponsiveContainer width="100%" height={250}>
-        <PieChart>
+    <div className="w-full" style={{ padding: 'var(--space-2) 0' }}>
+      <ResponsiveContainer width="100%" height={320}>
+        <PieChart margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
           <Pie
             data={dataWithPercentages}
             cx="50%"
-            cy="50%"
+            cy="45%"
             labelLine={false}
             label={({ name, value }) => {
               const percentage = totalValue > 0 ? (value / totalValue) * 100 : 0;
               const displayName = name?.split('(')[1]?.replace(')', '') || name || 'Unknown';
               return `${displayName}: ${percentage.toFixed(1)}%`;
             }}
-            outerRadius={80}
+            outerRadius={70}
             fill="#8884d8"
             dataKey="value"
           >
@@ -95,12 +95,17 @@ export const AllocationChart: React.FC<AllocationChartProps> = ({ portfolio }) =
             ))}
           </Pie>
           <Tooltip content={<CustomTooltip />} />
-          <Legend />
+          <Legend 
+            verticalAlign="bottom" 
+            height={36}
+            iconType="circle"
+            wrapperStyle={{ paddingTop: 'var(--space-4)' }}
+          />
         </PieChart>
       </ResponsiveContainer>
 
       {/* Allocation Details Table */}
-      <div style={{ marginTop: 'var(--space-4)' }}>
+      <div style={{ marginTop: 'var(--space-6)' }}>
         <div className="table-responsive allocation-table">
           <table className="portfolio-table">
             <thead>
