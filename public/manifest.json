@@ -1,0 +1,41 @@
+{
+  "name": "Stockfolio",
+  "short_name": "Stockfolio",
+  "description": "Modern Stock Portfolio Tracker",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "orientation": "portrait-primary",
+  "categories": ["finance", "productivity", "utilities"],
+  "shortcuts": [
+    {
+      "name": "Add Stock",
+      "short_name": "Add",
+      "description": "Add a new stock to portfolio",
+      "url": "/add",
+      "icons": [{ "src": "/icons/add-icon.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "View Portfolio",
+      "short_name": "Portfolio",
+      "description": "View your portfolio",
+      "url": "/portfolio",
+      "icons": [{ "src": "/icons/portfolio-icon.png", "sizes": "96x96" }]
+    }
+  ]
+}
