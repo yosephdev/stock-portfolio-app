@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Area, AreaChart } from 'recharts';
+import { XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Area, AreaChart } from 'recharts';
 import { format, parseISO } from 'date-fns';
 
 interface HistoricalData {
@@ -83,8 +83,11 @@ export const HistoricalChart: React.FC<HistoricalChartProps> = ({ data }) => {
       </div>
 
       {/* Chart */}
-      <ResponsiveContainer width="100%" height={250}>
-        <AreaChart data={processedData}>
+      <ResponsiveContainer width="100%" height={300}>
+        <AreaChart 
+          data={processedData}
+          margin={{ top: 10, right: 20, left: 0, bottom: 10 }}
+        >
           <defs>
             <linearGradient id="colorValue" x1="0" y1="0" x2="0" y2="1">
               <stop offset="5%" stopColor="#8884d8" stopOpacity={0.8}/>
@@ -96,11 +99,17 @@ export const HistoricalChart: React.FC<HistoricalChartProps> = ({ data }) => {
             dataKey="formattedDate" 
             stroke="var(--color-text-secondary)"
             fontSize={12}
+            tick={{ fill: 'var(--color-text-secondary)' }}
+            angle={-45}
+            textAnchor="end"
+            height={60}
           />
           <YAxis 
             stroke="var(--color-text-secondary)"
             fontSize={12}
+            tick={{ fill: 'var(--color-text-secondary)' }}
             tickFormatter={(value) => `$${(value / 1000).toFixed(0)}k`}
+            width={60}
           />
           <Tooltip content={<CustomTooltip />} />
           <Area 
@@ -110,14 +119,8 @@ export const HistoricalChart: React.FC<HistoricalChartProps> = ({ data }) => {
             strokeWidth={2}
             fill="url(#colorValue)" 
             name="Portfolio Value"
-          />
-          <Line 
-            type="monotone" 
-            dataKey="value" 
-            stroke="#8884d8" 
-            strokeWidth={2}
-            dot={{ r: 2 }}
-            activeDot={{ r: 5, fill: '#8884d8' }}
+            dot={{ r: 3 }}
+            activeDot={{ r: 6, fill: '#8884d8' }}
           />
         </AreaChart>
       </ResponsiveContainer>
