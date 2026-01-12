@@ -6,6 +6,8 @@ A modern web application for managing and analyzing a personal stock portfolio. 
 
 The Stock Portfolio Tracker is a React-based web application designed to help users manage their stock investments in a clear and structured way. Users can add, update, and remove stock positions while viewing calculated metrics such as market value and unrealized gains or losses.
 
+**This project originated as a school assignment 6 years ago and has been completely modernized with current technologies and best practices.** The updated version features improved mobile responsiveness, modern React patterns, TypeScript integration, and enhanced user experience.
+
 This project demonstrates practical frontend development skills, state management, financial data handling, and modern web development practices.
 
 ## Features
@@ -30,20 +32,29 @@ This project demonstrates practical frontend development skills, state managemen
 
 ### Developer Experience
 - ✅ Built with TypeScript for type safety
-- ✅ Modern React with hooks and useReducer for state management
+- ✅ Modern React 19 with hooks and useReducer for state management
 - ✅ Vite for fast development and optimized builds
 - ✅ ESLint for code linting
 - ✅ Vitest for unit testing
 - ✅ CI/CD with GitHub Actions
+- ✅ Progressive Web App (PWA) support
 - ✅ Ready for deployment on Vercel/Netlify
+
+### Recent Improvements (2026 Update)
+- ✅ Enhanced mobile responsiveness for iPhone SE and iPhone 14
+- ✅ Improved table layouts with responsive column hiding
+- ✅ Full-width component layouts for better space utilization
+- ✅ Modern CSS with custom properties and mobile-first design
+- ✅ Environment variable configuration for API keys
+- ✅ Updated dependencies and build tools
 
 ## Tech Stack
 
 - **React 19** – Component-based UI development with hooks
 - **TypeScript** – Type-safe JavaScript
 - **Vite** – Fast build tool and dev server
+- **Tailwind CSS** – Utility-first CSS framework
 - **Recharts** – Data visualization library
-- **Bootstrap** – Responsive CSS framework
 - **Alpha Vantage API** – Real-time stock market data
 - **Papaparse** – CSV export functionality
 - **Vitest** – Unit testing framework
@@ -60,7 +71,7 @@ This project demonstrates practical frontend development skills, state managemen
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
+git clone https://github.com/yosephdev/stock-portfolio-app
 cd stock-portfolio-app
 ```
 
@@ -99,12 +110,26 @@ npm run lint
 
 ```
 src/
-├── App.tsx          # Main application component
-├── main.tsx         # App entry point
-├── types.ts         # TypeScript type definitions
-├── App.css          # Component styles
-├── index.css        # Global styles
-└── assets/          # Static assets
+├── App.tsx                 # Main application component
+├── main.tsx                # App entry point
+├── types.ts                # TypeScript type definitions
+├── App.css                 # Component styles and CSS variables
+├── index.css               # Global styles and Tailwind imports
+├── components/             # React components
+│   ├── StockTable.tsx      # Stock holdings table
+│   ├── PortfolioMetrics.tsx # Portfolio statistics
+│   ├── AddStockForm.tsx    # Stock addition form
+│   ├── AllocationChart.tsx # Portfolio allocation pie chart
+│   └── HistoricalChart.tsx # Performance history line chart
+├── hooks/                  # Custom React hooks
+│   ├── usePortfolio.ts     # Portfolio state management
+│   ├── useStockData.ts     # Stock price fetching
+│   └── useHistoricalData.ts # Historical data generation
+├── reducers/               # State reducers
+│   └── portfolioReducer.ts # Portfolio state logic
+├── utils/                  # Utility functions
+│   └── exportUtils.ts      # CSV/PDF export functions
+└── assets/                 # Static assets
 ```
 
 ## API Configuration
@@ -112,7 +137,8 @@ src/
 The app uses Alpha Vantage for real-time stock data. For full functionality:
 
 1. Sign up for a free API key at [Alpha Vantage](https://www.alphavantage.co/support/#api-key)
-2. Replace the `API_KEY` constant in `src/App.tsx` with your key
+2. Create a `.env` file in the root directory
+3. Add your API key: `VITE_API_KEY=your_api_key_here`
 
 Note: The demo key has rate limits. For production use, obtain your own API key.
 
@@ -146,8 +172,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Project Status
 
-This project is actively maintained and evolving. Future enhancements may include:
+This project was originally created as a school assignment 6 years ago and has been completely modernized in 2026 with current technologies and best practices. The updated version includes enhanced mobile responsiveness, improved user experience, and modern development tools.
 
+Future enhancements may include:
 - User authentication and multiple portfolios
 - Advanced analytics and reporting
 - Mobile app version
