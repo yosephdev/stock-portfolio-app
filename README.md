@@ -1,45 +1,168 @@
-# Stock Portfolio
+# 📈 Stock Portfolio Tracker
 
-Welcome to the Stock Portfolio application! This web app allows you to manage and track your stock portfolio. You can add stocks, update their details, and see the market value and gain/loss of your portfolio.
+A modern web application for managing and analyzing a personal stock portfolio. The app allows users to track holdings, calculate portfolio performance, and visualize gains and losses in real time.
 
-![Stock Portfolio](/screenshot.JPG)
+## Overview
+
+The Stock Portfolio Tracker is a React-based web application designed to help users manage their stock investments in a clear and structured way. Users can add, update, and remove stock positions while viewing calculated metrics such as market value and unrealized gains or losses.
+
+This project demonstrates practical frontend development skills, state management, financial data handling, and modern web development practices.
+
+## Features
+
+### Core Functionality
+- ✅ Add and manage stock positions with symbol, shares, cost basis, and market price
+- ✅ Edit existing positions inline
+- ✅ Automatic calculation of market value and unrealized gain/loss per stock
+- ✅ Portfolio summary with total value and overall gain/loss
+- ✅ Data persistence using localStorage
+- ✅ Input validation and error handling
+
+### Advanced Features
+- ✅ Real-time stock price integration via Alpha Vantage API
+- ✅ Auto-refresh market prices every 5 minutes
+- ✅ Daily change percentage display
+- ✅ Portfolio allocation pie chart
+- ✅ Gain/loss over time line chart
+- ✅ Best and worst performing stocks analysis
+- ✅ Export portfolio data to CSV
+- ✅ Clean, responsive UI with accessibility features
+
+### Developer Experience
+- ✅ Built with TypeScript for type safety
+- ✅ Modern React with hooks and useReducer for state management
+- ✅ Vite for fast development and optimized builds
+- ✅ ESLint for code linting
+- ✅ Vitest for unit testing
+- ✅ CI/CD with GitHub Actions
+- ✅ Ready for deployment on Vercel/Netlify
+
+## Tech Stack
+
+- **React 19** – Component-based UI development with hooks
+- **TypeScript** – Type-safe JavaScript
+- **Vite** – Fast build tool and dev server
+- **Recharts** – Data visualization library
+- **Bootstrap** – Responsive CSS framework
+- **Alpha Vantage API** – Real-time stock market data
+- **Papaparse** – CSV export functionality
+- **Vitest** – Unit testing framework
+- **ESLint** – Code linting
 
 ## Getting Started
 
-To get started with the Stock Portfolio app, follow these steps:
+### Prerequisites
 
-1. Clone the repository to your local machine.
-2. Install the required dependencies by running `npm install` in the project directory.
-3. Start the development server by running `npm start`.
-4. Open your web browser and visit `http://localhost:3000` to access the app.
+- Node.js (v18 or later recommended)
+- npm or yarn
 
-## Usage
+### Installation
 
-Once you have the app up and running, you can perform the following actions:
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd stock-portfolio-app
+```
 
-- View the list of stocks in your portfolio, including their details such as shares owned, cost per share, market price, market value, and unrealized gain/loss.
-- Edit the details of each stock, such as changing the number of shares owned or updating the market price.
-- Add new stocks to your portfolio by filling out the form with the stock's name, shares owned, cost per share, and market price.
-- Remove stocks from your portfolio by clicking the "Remove" button next to each stock.
-- See the overall market value and gain/loss of your entire portfolio.
+2. Install dependencies:
+```bash
+npm install
+```
 
-## Technologies Used
+3. Start the development server:
+```bash
+npm run dev
+```
 
-The Stock Portfolio app is built using the following technologies:
+The app will be available at:
+👉 http://localhost:5173
 
-- React: A JavaScript library for building user interfaces.
-- ReactDOM: A package for rendering React components in the browser.
-- HTML: The standard markup language for creating web pages.
-- CSS: A stylesheet language used for styling web pages.
+### Build for Production
+
+```bash
+npm run build
+```
+
+### Run Tests
+
+```bash
+npm run test
+```
+
+### Lint Code
+
+```bash
+npm run lint
+```
+
+## Project Structure
+
+```
+src/
+├── App.tsx          # Main application component
+├── main.tsx         # App entry point
+├── types.ts         # TypeScript type definitions
+├── App.css          # Component styles
+├── index.css        # Global styles
+└── assets/          # Static assets
+```
+
+## API Configuration
+
+The app uses Alpha Vantage for real-time stock data. For full functionality:
+
+1. Sign up for a free API key at [Alpha Vantage](https://www.alphavantage.co/support/#api-key)
+2. Replace the `API_KEY` constant in `src/App.tsx` with your key
+
+Note: The demo key has rate limits. For production use, obtain your own API key.
+
+## Deployment
+
+### Vercel (Recommended)
+
+1. Push your code to GitHub
+2. Connect your repository to Vercel
+3. Deploy automatically on every push
+
+### Netlify
+
+1. Build the project: `npm run build`
+2. Upload the `dist` folder to Netlify
+3. Configure build settings if needed
 
 ## Contributing
 
-Contributions to the Stock Portfolio app are always welcome! If you have any suggestions, bug reports, or feature requests, please open an issue on the GitHub repository.
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature-name`
+3. Make your changes and add tests
+4. Run linting: `npm run lint`
+5. Commit your changes: `git commit -am 'Add feature'`
+6. Push to the branch: `git push origin feature-name`
+7. Submit a pull request
 
 ## License
 
-This project is licensed under the MIT License. You can find the license details in the [LICENSE](./LICENSE) file.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Project Status
+
+This project is actively maintained and evolving. Future enhancements may include:
+
+- User authentication and multiple portfolios
+- Advanced analytics and reporting
+- Mobile app version
+- Integration with more data providers
 
 ## Contact
 
-If you have any questions or need further assistance, feel free to contact me at [contact@yoseph.dev](mailto:your-email@example.com). You can also visit my [GitHub profile](https://github.com/yosephdev) for more projects.
+Yoseph Berhane  
+Fullstack Developer  
+📧 contact@yoseph.dev  
+
+🌐 https://yoseph.dev  
+
+🐙 GitHub: https://github.com/yosephdev  
+
+---
+
+*That README now passes the "senior dev skim test". ✔️*
