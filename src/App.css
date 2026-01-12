@@ -32,12 +32,12 @@
   --color-gray-900: #111827;
   
   /* Theme Variables - Light Mode Default */
-  --color-background: var(--color-gray-50);
+  --color-background: #ffffff;
   --color-background-card: #ffffff;
-  --color-background-alt: var(--color-gray-100);
+  --color-background-alt: var(--color-gray-50);
   --color-text-primary: var(--color-gray-900);
-  --color-text-secondary: var(--color-gray-600);
-  --color-text-muted: var(--color-gray-500);
+  --color-text-secondary: var(--color-gray-700);
+  --color-text-muted: var(--color-gray-600);
   --color-border: var(--color-gray-200);
   --color-shadow: rgba(0, 0, 0, 0.1);
   
@@ -75,19 +75,8 @@
   --transition-slow: 350ms ease;
 }
 
-/* Dark Mode Overrides */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-background: var(--color-gray-900);
-    --color-background-card: var(--color-gray-800);
-    --color-background-alt: var(--color-gray-800);
-    --color-text-primary: var(--color-gray-50);
-    --color-text-secondary: var(--color-gray-300);
-    --color-text-muted: var(--color-gray-400);
-    --color-border: var(--color-gray-700);
-    --color-shadow: rgba(0, 0, 0, 0.3);
-  }
-}
+/* Dark Mode Overrides - Only applied when .theme-dark class is present */
+/* Removed auto dark mode to prevent readability issues */
 
 /* Force Dark/Light Mode Classes */
 .theme-dark {
@@ -102,12 +91,12 @@
 }
 
 .theme-light {
-  --color-background: var(--color-gray-50);
+  --color-background: #ffffff;
   --color-background-card: #ffffff;
-  --color-background-alt: var(--color-gray-100);
+  --color-background-alt: var(--color-gray-50);
   --color-text-primary: var(--color-gray-900);
-  --color-text-secondary: var(--color-gray-600);
-  --color-text-muted: var(--color-gray-500);
+  --color-text-secondary: var(--color-gray-700);
+  --color-text-muted: var(--color-gray-600);
   --color-border: var(--color-gray-200);
   --color-shadow: rgba(0, 0, 0, 0.1);
 }
@@ -158,6 +147,13 @@ body {
   border-bottom: 1px solid var(--color-border);
 }
 
+.app-header p {
+  color: var(--color-text-secondary);
+  font-size: 1.125rem;
+  font-weight: 400;
+  margin-top: var(--space-2);
+}
+
 .app-main {
   display: flex;
   flex-direction: column;
@@ -168,7 +164,7 @@ body {
   margin-top: auto;
   padding: var(--space-6) 0;
   text-align: center;
-  color: var(--color-text-muted);
+  color: var(--color-text-secondary);
   border-top: 1px solid var(--color-border);
 }
 
@@ -615,27 +611,6 @@ h4 {
   margin: 0 auto;
   padding: var(--space-5);
   width: 100%;
-}
-
-.app-header {
-  text-align: center;
-  margin-bottom: var(--space-6);
-  padding-bottom: var(--space-5);
-  border-bottom: 1px solid var(--color-border);
-}
-
-.app-main {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-6);
-}
-
-.app-footer {
-  margin-top: auto;
-  padding: var(--space-6) 0;
-  text-align: center;
-  color: var(--color-text-muted);
-  border-top: 1px solid var(--color-border);
 }
 
 /* Grid System */

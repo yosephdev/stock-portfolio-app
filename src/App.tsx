@@ -110,7 +110,7 @@ function App() {
     <div className="app-container">
       <header className="app-header">
         <h1 className="text-gradient">Stock Portfolio Tracker</h1>
-        <p className="text-muted">Track your investments in real-time</p>
+        <p>Track your investments in real-time</p>
       </header>
 
       <main className="app-main">
