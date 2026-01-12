@@ -101,7 +101,7 @@ export const AllocationChart: React.FC<AllocationChartProps> = ({ portfolio }) =
 
       {/* Allocation Details Table */}
       <div style={{ marginTop: 'var(--space-4)' }}>
-        <div className="table-responsive">
+        <div className="table-responsive allocation-table">
           <table className="portfolio-table">
             <thead>
               <tr>
@@ -114,11 +114,11 @@ export const AllocationChart: React.FC<AllocationChartProps> = ({ portfolio }) =
             <tbody>
               {dataWithPercentages.map((item, index) => (
                 <tr key={index}>
-                  <td>{item.name}</td>
-                  <td>
+                  <td data-label="Stock">{item.name}</td>
+                  <td data-label="Value">
                     ${item.value.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                   </td>
-                  <td>
+                  <td data-label="Allocation">
                     <div className="flex items-center">
                       <div style={{ 
                         width: '120px', 
@@ -139,7 +139,7 @@ export const AllocationChart: React.FC<AllocationChartProps> = ({ portfolio }) =
                       <span>{item.percentage.toFixed(1)}%</span>
                     </div>
                   </td>
-                  <td>
+                  <td data-label="Color">
                     <div 
                       style={{ 
                         width: '16px', 
