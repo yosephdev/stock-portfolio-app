@@ -140,6 +140,13 @@ body {
   width: 100%;
 }
 
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  .app-container {
+    padding: var(--space-3);
+  }
+}
+
 .app-header {
   text-align: center;
   margin-bottom: var(--space-6);
@@ -238,19 +245,131 @@ h4 {
   transform: translateY(-2px);
 }
 
+.card-full-width {
+  padding: 0;
+  margin-bottom: var(--space-4);
+  border: none;
+  box-shadow: none;
+  background: transparent;
+}
+
+.card-full-width:hover {
+  box-shadow: none;
+  transform: none;
+}
+
 .card-header {
-  padding-bottom: var(--space-4);
+  padding: var(--space-4);
   margin-bottom: var(--space-4);
   border-bottom: 1px solid var(--color-border);
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background: var(--color-background-card);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
 }
 
 .card-title {
   font-size: 1.25rem;
   font-weight: 600;
   margin: 0;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  .app-container {
+    padding: var(--space-2);
+    max-width: 100%;
+  }
+  
+  .app-header {
+    margin-bottom: var(--space-4);
+    padding-bottom: var(--space-3);
+  }
+  
+  .app-header h1 {
+    font-size: 1.75rem;
+  }
+  
+  .app-header p {
+    font-size: 1rem;
+  }
+  
+  .app-main {
+    gap: var(--space-4);
+  }
+  
+  .card {
+    padding: var(--space-2);
+    margin-bottom: var(--space-2);
+  }
+  
+  .card-full-width {
+    padding: 0;
+    margin-bottom: var(--space-2);
+  }
+  
+  .card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+    padding: var(--space-3);
+    margin-bottom: var(--space-3);
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+  }
+  
+  .stat-card {
+    padding: var(--space-3);
+  }
+  
+  .stat-value {
+    font-size: 1.75rem;
+  }
+  
+  .allocation-chart, .historical-chart {
+    padding: var(--space-3);
+    margin-bottom: var(--space-3);
+  }
+  
+  .portfolio-table {
+    min-width: 400px; /* Further reduced for mobile */
+    font-size: 0.8rem;
+    width: 100%;
+  }
+  
+  .portfolio-table th,
+  .portfolio-table td {
+    padding: var(--space-1) var(--space-2);
+    font-size: 0.75rem;
+  }
+  
+  .btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+  }
+  
+  .btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    width: 100%;
+  }
+  
+  .btn-group .btn {
+    flex: 1;
+    min-width: 120px;
+  }
+  
+  .form-control {
+    font-size: 0.875rem;
+    padding: 0.5rem;
+    width: 100%;
+    max-width: 80px;
+  }
 }
 
 /* Portfolio Stats */
@@ -291,12 +410,12 @@ h4 {
 }
 
 /* Table Styles */
-.table-responsive {
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  box-shadow: var(--shadow-md);
+.allocation-chart, .historical-chart {
   background: var(--color-background-card);
-  margin-bottom: var(--space-6);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  margin-bottom: var(--space-4);
 }
 
 .portfolio-table {
@@ -318,18 +437,13 @@ h4 {
   text-align: left;
 }
 
-.portfolio-table tbody tr {
-  border-bottom: 1px solid var(--color-border);
-  transition: background-color var(--transition-fast);
-}
-
-.portfolio-table tbody tr:last-child {
-  border-bottom: none;
-}
-
-.portfolio-table tbody tr:hover {
-  background-color: color-mix(in srgb, var(--color-primary) 5%, transparent);
-}
+  .portfolio-table tbody tr {
+    min-height: 48px; /* Ensure touch targets are adequate */
+  }
+  
+  .portfolio-table tbody tr:hover {
+    background-color: color-mix(in srgb, var(--color-primary) 3%, transparent);
+  }
 
 .portfolio-table td {
   padding: var(--space-4) var(--space-5);
@@ -929,11 +1043,6 @@ h4 {
   
   .form-control {
     font-size: 16px; /* Prevents zoom on iOS */
-  }
-  
-  /* Chart spacing improvements */
-  .w-full {
-    padding: var(--space-3) 0;
   }
   
   .grid {

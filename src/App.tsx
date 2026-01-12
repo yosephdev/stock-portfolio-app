@@ -116,7 +116,7 @@ function App() {
       <main className="app-main">
         <PortfolioMetrics portfolio={state.portfolio} prices={prices} />
 
-        <div className="card">
+        <div className="card card-full-width">
           <div className="card-header">
             <h2 className="card-title">Your Holdings</h2>
             <div className="btn-group">
@@ -142,19 +142,19 @@ function App() {
           />
         </div>
 
-        <div className="grid grid-cols-2">
-          <div className="card">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="card card-full-width">
             <h3 className="card-title">Portfolio Allocation</h3>
             <AllocationChart portfolio={state.portfolio} />
           </div>
           
-          <div className="card">
+          <div className="card card-full-width">
             <h3 className="card-title">Performance History</h3>
             <HistoricalChart data={historicalData} />
           </div>
         </div>
 
-        <div className="card">
+        <div className="card card-full-width">
           <AddStockForm
             onSubmit={addStock}
             errors={state.errors}

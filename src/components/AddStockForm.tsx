@@ -42,7 +42,7 @@ export const AddStockForm: React.FC<AddStockFormProps> = ({ onSubmit, errors, lo
       <h2 className="card-title">Add New Stock</h2>
       
       <form onSubmit={handleSubmit}>
-        <div className="grid grid-cols-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="form-group">
             <label htmlFor="name" className="form-label">
               Stock Name *
