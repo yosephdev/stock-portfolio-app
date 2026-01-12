@@ -1,0 +1,4 @@
+@import "tailwindcss";
+
+/* Import App.css for custom CSS variables */
+@import "./App.css";
