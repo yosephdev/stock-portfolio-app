@@ -164,5 +164,3 @@ Fullstack Developer
 🐙 GitHub: https://github.com/yosephdev  
 
 ---
-
-*That README now passes the "senior dev skim test". ✔️*

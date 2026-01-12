@@ -74,7 +74,7 @@ export const AllocationChart: React.FC<AllocationChartProps> = ({ portfolio }) =
 
   return (
     <div className="w-full">
-      <ResponsiveContainer width="100%" height={300}>
+      <ResponsiveContainer width="100%" height={250}>
         <PieChart>
           <Pie
             data={dataWithPercentages}

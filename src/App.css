@@ -755,32 +755,229 @@ h4 {
   background: var(--color-gray-500);
 }
 
-/* Responsive */
+/* Responsive Design */
+
+/* Tablet and below */
+@media (max-width: 1024px) {
+  .app-container {
+    padding: var(--space-4);
+  }
+  
+  .grid-cols-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Mobile devices */
 @media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+  
   .app-container {
     padding: var(--space-3);
   }
   
+  .app-header {
+    margin-bottom: var(--space-4);
+    padding-bottom: var(--space-3);
+  }
+  
+  .app-header p {
+    font-size: 1rem;
+  }
+  
   h1 {
-    font-size: 2rem;
+    font-size: 1.75rem;
+    margin-bottom: var(--space-2);
   }
   
   h2 {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
+  }
+  
+  h3 {
+    font-size: 1.125rem;
   }
   
   .card {
     padding: var(--space-3);
+    margin-bottom: var(--space-4);
+  }
+  
+  .card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+  }
+  
+  .card-title {
+    font-size: 1.125rem;
   }
   
   .stats-grid {
     grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+  
+  .stat-card {
+    padding: var(--space-4);
+  }
+  
+  .stat-value {
+    font-size: 2rem;
+  }
+  
+  .stat-label {
+    font-size: 0.75rem;
+  }
+  
+  .btn-group {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .btn-group .btn {
+    width: 100%;
+  }
+  
+  .btn {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.875rem;
   }
   
   .portfolio-table {
     display: block;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+  }
+  
+  .portfolio-table thead {
+    display: none;
+  }
+  
+  .portfolio-table tbody tr {
+    display: block;
+    margin-bottom: var(--space-4);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-3);
+    background: var(--color-background-card);
+  }
+  
+  .portfolio-table tbody td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-2) var(--space-3);
+    border: none;
+    text-align: right;
+  }
+  
+  .portfolio-table tbody td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    text-align: left;
+    color: var(--color-text-secondary);
+    margin-right: var(--space-2);
+    flex-shrink: 0;
+  }
+  
+  .portfolio-table tbody td input {
+    width: 100% !important;
+    max-width: 100%;
+  }
+  
+  .portfolio-table tbody td:first-child {
+    padding-top: var(--space-3);
+  }
+  
+  .portfolio-table tbody td:last-child {
+    padding-bottom: var(--space-3);
+  }
+  
+  .form-group {
+    margin-bottom: var(--space-4);
+  }
+  
+  .form-control {
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+  
+  .grid {
+    gap: var(--space-4);
+  }
+  
+  .grid-cols-2 {
+    grid-template-columns: 1fr;
+  }
+  
+  .app-main {
+    gap: var(--space-4);
+  }
+  
+  .app-footer {
+    padding: var(--space-4) 0;
+    font-size: 0.875rem;
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+  html {
+    font-size: 13px;
+  }
+  
+  .app-container {
+    padding: var(--space-2);
+  }
+  
+  h1 {
+    font-size: 1.5rem;
+  }
+  
+  .card {
+    padding: var(--space-2);
+    border-radius: var(--radius-md);
+  }
+  
+  .stat-value {
+    font-size: 1.75rem;
+  }
+  
+  .btn {
+    padding: 0.625rem 1rem;
+    font-size: 0.8125rem;
+  }
+  
+  .form-control {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+  }
+  
+  .portfolio-table tbody td {
+    padding: var(--space-1) var(--space-2);
+    font-size: 0.875rem;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .btn {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  .form-control {
+    min-height: 44px;
+  }
+  
+  .card:hover {
+    transform: none;
+  }
+  
+  .stat-card:hover {
+    transform: none;
   }
 }
 

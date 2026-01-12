@@ -34,7 +34,7 @@ export const StockTable: React.FC<StockTableProps> = ({ stocks, onUpdate, onRemo
 
             return (
               <tr key={stock.id}>
-                <td>
+                <td data-label="Stock">
                   <div className="flex items-center">
                     <div>
                       <div className="text-sm font-medium">{stock.name}</div>
@@ -42,41 +42,41 @@ export const StockTable: React.FC<StockTableProps> = ({ stocks, onUpdate, onRemo
                     </div>
                   </div>
                 </td>
-                <td>
+                <td data-label="Shares">
                   <input
                     type="number"
                     className="form-control"
-                    style={{ width: '80px' }}
+                    style={{ width: '80px', maxWidth: '100%' }}
                     value={stock.shares_owned}
                     onChange={(e) => onUpdate(stock.id, 'shares_owned', parseFloat(e.target.value) || 0)}
                     min="0"
                     step="1"
                   />
                 </td>
-                <td>
+                <td data-label="Avg Cost">
                   <input
                     type="number"
                     className="form-control"
-                    style={{ width: '100px' }}
+                    style={{ width: '100px', maxWidth: '100%' }}
                     value={stock.cost_per_share}
                     onChange={(e) => onUpdate(stock.id, 'cost_per_share', parseFloat(e.target.value) || 0)}
                     min="0"
                     step="0.01"
                   />
                 </td>
-                <td>${stock.market_price.toFixed(2)}</td>
-                <td>${marketValue.toFixed(2)}</td>
-                <td>
+                <td data-label="Current Price">${stock.market_price.toFixed(2)}</td>
+                <td data-label="Market Value">${marketValue.toFixed(2)}</td>
+                <td data-label="Gain/Loss">
                   <div className={gainLoss >= 0 ? 'text-success' : 'text-danger'}>
                     ${gainLoss.toFixed(2)} ({gainLossPercent.toFixed(2)}%)
                   </div>
                 </td>
-                <td>
+                <td data-label="Daily %">
                   <div className={`stock-change ${dailyChange >= 0 ? 'positive' : 'negative'}`}>
                     {dailyChange >= 0 ? '+' : ''}{dailyChange.toFixed(2)}%
                   </div>
                 </td>
-                <td>
+                <td data-label="Actions">
                   <button
                     onClick={() => onRemove(stock.id)}
                     className="btn btn-sm btn-danger"
